@@ -61,5 +61,4 @@ const showListOfContacts = () => {
   console.log("╚═══════════════════════════════");
 };
 
-const editContact = () => {};
 module.exports = { addContact, deleteContact };

@@ -1,5 +1,7 @@
 const list = require("../src/data/index.js");
-const { addContact, deleteContact } = require("../src/index.js");
+const addContact = require("../src/functions/addContact.js");
+const deleteContact = require("../src/functions/deleteContact.js");
+const editContact = require("../src/functions/editContact.js");
 const {
   name,
   num,
@@ -65,5 +67,32 @@ describe("The contact is removed from the list successfully", () => {
       messages.deleteSuccesfully
     );
     expect(list.length).toBe(9);
+  });
+});
+
+describe("The contact is successfully updated", () => {
+  it("An ID must be provided", () => {
+    expect(editContact(null)).toStrictEqual(messages.errorEditnoId);
+  });
+  it("Receive information in a specific format", () => {
+    expect(editContact(1, null)).toStrictEqual(messages.errorDataEdit);
+  });
+  it("Must not allow updating the ID", () => {
+    expect(editContact(1, { id: 123 })).toStrictEqual(messages.errorEdit);
+  });
+  it("Responds correctly if the contact does not exist", () => {
+    expect(editContact(contactNotInList.id, contactInList)).toStrictEqual(
+      messages.errorIdEdit
+    );
+  });
+
+  it("The contact is updated successfully", () => {
+    const prevContact = list[0];
+    const updatedContact = { lastName: "Lovelace" };
+    const result = editContact(1, updatedContact);
+
+    expect(result).toEqual(messages.successFullyEdit);
+
+    expect(list[0]).not.toEqual(prevContact);
   });
 });

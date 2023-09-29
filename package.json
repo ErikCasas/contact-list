@@ -11,12 +11,11 @@
     "url": "git+https://github.com/ErikCasas/contact-list.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Erik",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ErikCasas/contact-list/issues"
   },
-  "homepage": "https://github.com/ErikCasas/contact-list#readme",
   "devDependencies": {
     "jest": "29.7.0"
   },

@@ -1,8 +1,9 @@
 const name = "Erik el rojo";
 const num = 1234567891;
 const messages = {
+  errorType: { message: "Se debe ingresar un numero" },
   successfullyMessage: { message: "Tarea añadida" },
-  errorMessage: { message: "Falta el numero o el nombre del nuevo contacto" },
+  errorMessage: { message: "Se debe ingresar un numero" },
   deleteSuccesfully: { message: "Contacto eliminado" },
   errorDeleteContact: {
     message: "No se encontro algun contacto para eliminar",
@@ -10,10 +11,9 @@ const messages = {
   errorDeleteContactNotInfo: {
     message: "Se necesita un id o nombre para eliminar el contacto",
   },
-  errorAddContact: { message: "Número o nombre ya existente" },
+  errorAddContact: { message: "Número ya existente" },
 };
 const contactInList = {
-  id: 9,
   name,
   num,
 };
